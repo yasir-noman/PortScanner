@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #050505;
+  color: #00ff00; 
+  font-family: 'Fira Code', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.terminal-container {
+  width: 800px;
+  background-color: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.title {
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  padding: 30px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.line { margin-bottom: 10px; }
+
+input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #00ff00;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  outline: none;
+  width: 350px;
+}
+
+input[type="text"]::placeholder { color: #005500; }
+
+button {
+  background: transparent;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 10px 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+button:hover { background: #00ff00; color: #000; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Table Style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #222;
+}
+
+th { color: #00cc00; border-bottom: 2px solid #00ff00; }
+
+.success { color: #00ff00; }
+.error { color: #ff3333; }
+.hidden { display: none; }
+
+/* Blinking cursor effect */
+.line:last-of-type::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Progress Bar Style */
+#progress-container {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.loading-text {
+  color: #ffbd2e; 
+  margin-bottom: 10px;
+}
+.progress-bar-bg {
+  width: 100%;
+  height: 12px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+  transition: width 0.3s ease;
+}
